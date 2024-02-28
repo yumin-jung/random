@@ -14,18 +14,11 @@
       height: 100vh;
       margin: 0;
     }
-
-    #canvasContainer {
-      margin-bottom: 20px;
-    }
   </style>
 </head>
 
 <body>
-  <div id="canvasContainer">
-    <canvas id="myCanvas" width="800" height="500" style="border:1px solid #000;"></canvas>
-  </div>
-  <button id="refreshButton">새로고침</button>
+  <canvas id="myCanvas" width="800" height="500" style="border:1px solid #000;"></canvas>
 
   <script>
     const canvas = document.getElementById('myCanvas');
@@ -42,15 +35,13 @@
       ctx.fillRect(x, y, 1, 1);
     }
 
-    const refreshButton = document.getElementById('refreshButton');
-
-    refreshButton.addEventListener('click', function () {
+    setInterval(function () {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      for (let i = 0; i < 100000; i++) {
+      for (var i = 0; i < 100000; i++) {
         drawRandomPixel();
       }
-    });
+    }, 160);
   </script>
 </body>
 
